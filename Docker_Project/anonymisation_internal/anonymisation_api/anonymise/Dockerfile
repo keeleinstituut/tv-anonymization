@@ -9,8 +9,8 @@ RUN apt-get -y update && apt-get install -y unixodbc-dev gcc g++ &&\
    && rm -rf /var/lib/apt/lists/*
 RUN pip install dataclasses
 RUN pip install datasets
-RUN pip install transformers>=4.1
-RUN pip install torch
+# RUN pip install transformers>=4.1
+# RUN pip install torch
 RUN pip install seqeval
 RUN pip install nltk
 RUN pip install Flask gunicorn celery Redis
