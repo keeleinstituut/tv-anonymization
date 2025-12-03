@@ -49,14 +49,14 @@ def predict_ne(orig_text: str, tokenize: bool, truecase: bool, do_pseudonymisati
         regex_entities = find_regex_entities(text, text_lemmatized, confs)
     except Exception as e:
         regex_entities = {}
-        app.logger.debug("Error occurred while matching entities with regex, error: {} and input: {]".format(e, text))
+        app.logger.debug("Error occurred while matching entities with regex, error: {} and input: {}".format(e, text))
         app.logger.debug(traceback.format_exc())
     try:
         anonymised_text = connect_tags(ner_tagged, disabled_entities, regex_entities, url_dic)
     except Exception as e:
         anonymised_text = text.split()
         app.logger.debug(
-            "Error occurred while matching model and regex entities, error: {} and input: {]".format(e, text))
+            "Error occurred while matching model and regex entities, error: {} and input: {}".format(e, text))
         app.logger.debug(traceback.format_exc())
 
     mapping = []
@@ -74,7 +74,7 @@ def predict_ne(orig_text: str, tokenize: bool, truecase: bool, do_pseudonymisati
             _, pseudo_text, mapping1 = pseudonymization(text, anonymised_text, index_mapping)
         except Exception as e:
             app.logger.debug(
-                "Error occurred in pseudnonymisation, error: {} and input: {]".format(e, text))
+                "Error occurred in pseudnonymisation, error: {} and input: {}".format(e, text))
             app.logger.debug(traceback.format_exc())
             mapping1 = {}
             pseudo_text = text.split()
