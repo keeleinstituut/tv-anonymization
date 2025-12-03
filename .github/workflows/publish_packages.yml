@@ -1,0 +1,17 @@
+name: Publish packages to GHCR
+
+on:
+  push:
+    tags:
+      - '*'
+
+jobs:
+  publish_anonymize_if_necessary:
+    uses: keeleinstituut/tv-devops/.github/workflows/publish_if_necessary.yaml@feat/#421/allow-file-and-context-inputs-for-docker
+    with:
+      github_organization: ${{ github.repository_owner }}
+      app_name: tv-anonymise-api
+      git_tag: ${{ github.ref_name }}
+      dockerfile_path: ./Docker_Project/anonymisation_internal/anonymisation_api/anonymise/Dockerfile
+      docker_context_path: ./Docker_Project/anonymisation_internal/anonymisation_api/anonymise
+      helm_chart_path: ./helm/anonymise-api
