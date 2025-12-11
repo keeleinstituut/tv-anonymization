@@ -52,7 +52,12 @@ spec:
               path: /health_check
               port: http
           resources:
-            {{- toYaml .Values.resources | nindent 12 }}
+            limits:
+              memory: 4096Mi
+            requests:
+              cpu: 300m
+              memory: 512Mi
+
           {{- if .Values.extraEnvVars }}
           env:
             {{- include "common.tplvalues.render" (dict "value" .Values.extraEnvVars "context" $) | nindent 12 }}
