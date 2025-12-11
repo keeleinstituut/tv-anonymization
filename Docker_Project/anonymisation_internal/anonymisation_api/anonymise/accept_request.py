@@ -1,4 +1,4 @@
-# from anonymise import predict_ne
+from anonymise import predict_ne
 from flask import Flask, request, jsonify, make_response
 # from tasks import train, annotate_corpora_task
 import logging
