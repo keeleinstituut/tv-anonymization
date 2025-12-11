@@ -59,7 +59,7 @@ RUN chmod +x /entrypoint.sh
 EXPOSE 5001
 
 #
-# CMD ["gunicorn", "accept_request:app", "--bind", ":5001", "--timeout", "900", "--log-file", "/app/logs/gunicorn.log" , "--log-level" , "DEBUG" ]
-CMD ["python3", "accept_request.py"]
+CMD ["gunicorn", "accept_request:app", "--bind", ":5001", "--timeout", "900", "--log-file", "/app/logs/gunicorn.log" , "--log-level" , "DEBUG" ]
+#CMD ["python3", "accept_request.py"]
 
 ENTRYPOINT ["/entrypoint.sh"]
