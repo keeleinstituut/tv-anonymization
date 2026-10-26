@@ -3,8 +3,7 @@ FROM python:3.7-slim
 
 RUN apt-get -y update && apt-get install -y unixodbc-dev gcc g++ &&\
    apt-get install -y --no-install-recommends build-essential  \
-   curl wget nginx ca-certificates npm git git-lfs \
-   && npm install pm2 -g \
+   curl wget nginx ca-certificates git git-lfs \
    && pip install --upgrade pip setuptools \
    && rm -rf /var/lib/apt/lists/*
 RUN pip install dataclasses
